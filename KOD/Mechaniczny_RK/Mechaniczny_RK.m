@@ -16,17 +16,19 @@ emax = 1e-8;
 y0 = zeros(6,1);            % wektor warunków początkowych
 
 %wywołanie funkcji AdaptiveRK
-[t, yy] = AdaptiveRK(@ModelMechanicznyRK, y0, t0, tf, emin, emax);
+[t, yy] = AdaptiveRK(@ModelMechanicznyRK, y0, t0, tf, emin, emax); 
 
 
 
-%% Przesunięcia Prędkości
-% cyan M1 niebieski M2
-% różowy M2 czerwony M3
-% czarny M3 Zielony M1
-plot (t,yy(3,:), '-r', t, yy(1,:), '-g', t, yy(2,:), '-blue', ...
- t, yy(4,:),'-c', t, yy(5,:),'-m',t, yy(6,:), '-black'); grid on
+%%  Przesunięcia      Prędkości
+%   cyan      M1      niebieski   M2
+%   różowy    M2      czerwony    M3
+%   czarny    M3      Zielony     M1
+
+plot (  t,yy(3,:), '-r', t, yy(1,:), '-g', t, yy(2,:), '-blue', ...
+        t, yy(4,:),'-c', t, yy(5,:),'-m',t, yy(6,:), '-black'); 
+grid on
 xlabel ('czas [t]')
 ylabel ('Prędkość oraz przesunięcie')
 legend ('Prędkość bloku M3', 'Prędkość bloku M1', 'Prędkość bloku M2', ...
-'Przesunięcie bloku M1', 'Przesunięcie bloku M2', 'Przesunięcie bloku M3')
+        'Przesunięcie bloku M1', 'Przesunięcie bloku M2', 'Przesunięcie bloku M3')
